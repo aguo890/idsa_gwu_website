@@ -19,26 +19,28 @@ export const IDSALogo: React.FC<IDSALogoProps> = ({
     className = '',
     variant = 'gw-blue'
 }) => {
-    const textColor = variant === 'white' ? 'text-white' : 'text-black';
-    const boxBg = variant === 'white' ? 'bg-white' : 'bg-gw-blue';
-    const boxText = variant === 'white' ? 'text-gw-blue' : 'text-white';
+    const textColor = variant === 'white' ? '#FFFFFF' : '#000000';
+    const boxBg = variant === 'white' ? '#FFFFFF' : '#002D62';
+    const boxText = variant === 'white' ? '#002D62' : '#FFFFFF';
 
     return (
-        <div className={`flex flex-col items-center select-none pointer-events-none ${className}`} style={{ transform: 'none !important' }}>
+        <svg 
+            viewBox="0 0 80 160" 
+            className={`select-none pointer-events-none ${className}`} 
+            preserveAspectRatio="xMidYMid meet"
+            xmlns="http://www.w3.org/2000/svg"
+        >
             {/* Primary IDSA Mark */}
-            <div className={`flex flex-col items-center leading-none font-bold ${textColor}`}>
-                <span className="text-4xl">i</span>
-                <span className="text-2xl -mt-2">D</span>
-                <span className="text-2xl -mt-1">S</span>
-                <span className="text-2xl -mt-1">A</span>
-            </div>
+            <g fill={textColor} fontFamily="Inter, sans-serif" fontWeight="900" textAnchor="middle">
+                <text x="40" y="45" fontSize="56" letterSpacing="-2">i</text>
+                <text x="40" y="85" fontSize="42" letterSpacing="-1">D</text>
+                <text x="40" y="120" fontSize="42" letterSpacing="-1">S</text>
+                <text x="40" y="155" fontSize="42" letterSpacing="-1">A</text>
+            </g>
 
-            {/* Chapter Lockup Box - Enforces approved names */}
-            <div className={`mt-2 ${boxBg} px-3 py-1 flex items-center justify-center`}>
-                <span className={`${boxText} font-display font-bold text-[8px] uppercase tracking-widest text-center`}>
-                    {chapter}
-                </span>
-            </div>
-        </div>
+            {/* Chapter Lockup Box */}
+            <rect x="0" y="142" width="80" height="18" fill={boxBg} />
+            <text x="40" y="154" fill={boxText} fontFamily="Outfit, sans-serif" fontWeight="800" fontSize="7.5" textAnchor="middle" letterSpacing="0.5">{chapter}</text>
+        </svg>
     );
 };

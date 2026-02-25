@@ -14,12 +14,12 @@ const queryClient = new QueryClient({
   },
 });
 
-// Lazy load pages for performance optimization (Code Splitting)
 const Landing = lazy(() => import('./pages/Landing'));
-const TheLab = lazy(() => import('./pages/TheLab'));
-const TheWork = lazy(() => import('./pages/TheWork'));
-const TheNetwork = lazy(() => import('./pages/TheNetwork'));
-const ThePlaybook = lazy(() => import('./pages/ThePlaybook'));
+const Highlights = lazy(() => import('./pages/Highlights'));
+const Leadership = lazy(() => import('./pages/Leadership'));
+const Projects = lazy(() => import('./pages/Projects'));
+const Events = lazy(() => import('./pages/Events'));
+const OurBlog = lazy(() => import('./pages/OurBlog'));
 
 /**
  * PageLoader Fallback
@@ -42,10 +42,11 @@ function App() {
           <Suspense fallback={<PageLoader />}>
             <Routes>
               <Route path="/" element={<Landing />} />
-              <Route path="/the-lab" element={<TheLab />} />
-              <Route path="/the-work" element={<TheWork />} />
-              <Route path="/the-network" element={<TheNetwork />} />
-              <Route path="/the-playbook" element={<ThePlaybook />} />
+              <Route path="/highlights" element={<Highlights />} />
+              <Route path="/leadership" element={<Leadership />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/events" element={<Events />} />
+              <Route path="/our-blog" element={<OurBlog />} />
             </Routes>
           </Suspense>
         </AppLayout>
