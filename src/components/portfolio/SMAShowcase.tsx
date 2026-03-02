@@ -25,10 +25,10 @@ export const SMAShowcase: React.FC<{ projects: IndustrialDesignProject[] }> = ({
                         </p>
                     </div>
                     <div className="flex gap-4">
-                        <button className="px-6 py-3 border border-gw-buff/20 text-gw-buff text-[10px] font-bold uppercase tracking-widest hover:bg-gw-buff hover:text-gw-blue transition-luxury">
+                        <button className="px-6 py-3 border border-gw-buff/20 text-gw-buff text-[10px] font-bold uppercase tracking-widest hover:bg-gw-buff hover:text-gw-blue transition-transform duration-200">
                             Past Winners
                         </button>
-                        <button className="px-6 py-3 bg-gw-buff text-gw-blue text-[10px] font-bold uppercase tracking-widest hover:bg-white transition-luxury">
+                        <button className="px-6 py-3 bg-gw-buff text-gw-blue text-[10px] font-bold uppercase tracking-widest hover:bg-white transition-transform duration-200">
                             2025 Submission Guide
                         </button>
                     </div>

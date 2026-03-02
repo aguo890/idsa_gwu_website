@@ -12,7 +12,7 @@ import { motion } from 'framer-motion';
 export const ProjectCard: React.FC<{ project: IndustrialDesignProject }> = ({ project }) => (
     <motion.div
         whileHover={{ y: -8 }}
-        className="group relative bg-white border border-gray-100 overflow-hidden shadow-sm hover:shadow-2xl transition-luxury"
+        className="group relative bg-white border border-gray-100 overflow-hidden shadow-sm hover:shadow-2xl transition-transform duration-200"
     >
         {/* Image Container */}
         <div className="aspect-[4/5] overflow-hidden bg-gray-100">

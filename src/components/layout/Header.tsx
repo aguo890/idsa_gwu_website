@@ -13,70 +13,63 @@ const NAV_ITEMS = [
 
 export const Header: React.FC = () => {
     return (
-        <div className="fixed top-4 sm:top-6 left-0 right-0 z-50 px-4 sm:px-6 md:px-8 w-full">
-            <header className="glass-pill max-w-[1400px] mx-auto w-full transition-all duration-500 overflow-hidden">
+        <div className="fixed top-0 left-0 right-0 z-50 w-full pt-4 sm:pt-6 pb-0 bg-transparent pointer-events-none flex flex-col items-center overflow-x-hidden">
+
+            <header className="brutalist-panel max-w-[1400px] mx-auto w-[95%] overflow-visible pointer-events-auto border-4 border-white bg-black shadow-brutal-lg">
                 {/* Utility Header */}
-                <div className="hidden md:flex text-white/70 py-1.5 px-8 justify-between items-center text-[9px] tracking-widest uppercase border-b border-white/10 bg-black/10">
+                <div className="hidden md:flex text-white py-2 px-8 justify-between items-center text-[10px] font-black tracking-widest uppercase border-b-4 border-white bg-black">
                     <div className="flex gap-6">
-                        <a href="https://corcoran.gwu.edu" className="hover:text-white transition-colors duration-300">Corcoran Arts</a>
+                        <a href="https://corcoran.gwu.edu" className="hover:invert motion-reduce:hover:invert-0 motion-reduce:hover:bg-white motion-reduce:hover:text-black cursor-crosshair px-2 py-1 transition-none motion-reduce:transition-colors flex items-center justify-center bg-black text-white">Corcoran Arts</a>
                     </div>
                     <div className="flex gap-6">
-                        <button className="flex items-center gap-1.5 hover:text-white transition-colors duration-300">
-                            <Search size={10} /> Search
+                        <button className="flex items-center gap-2 hover:invert motion-reduce:hover:invert-0 motion-reduce:hover:bg-white motion-reduce:hover:text-black cursor-crosshair px-2 py-1 transition-none motion-reduce:transition-colors bg-black text-white">
+                            <Search size={14} strokeWidth={3} /> Search
                         </button>
-                        <button className="flex items-center gap-1.5 hover:text-white transition-colors duration-300">
-                            <User size={10} /> Login
+                        <button className="flex items-center gap-2 hover:invert motion-reduce:hover:invert-0 motion-reduce:hover:bg-white motion-reduce:hover:text-black cursor-crosshair px-2 py-1 transition-none motion-reduce:transition-colors bg-black text-white">
+                            <User size={14} strokeWidth={3} /> Login
                         </button>
                     </div>
                 </div>
 
-                <nav className="px-6 md:px-8 h-20 flex justify-between items-center relative">
+                <nav className="px-0 md:px-0 h-24 flex justify-between items-stretch relative bg-black">
                     {/* Logo Section */}
-                    <NavLink to="/" className="flex items-center gap-4 group h-full py-3 shrink-0">
+                    <NavLink to="/" className="flex items-center gap-6 group py-4 shrink-0 border-r-4 border-white px-6 md:px-8 hover:bg-white hover:text-black transition-none cursor-crosshair bg-black text-white">
                         <div className="h-full flex items-center justify-center relative overflow-hidden">
-                            <IDSALogo variant="white" className="h-full w-auto object-contain max-h-16 origin-left transition-transform duration-500 group-hover:scale-105" />
+                            <IDSALogo variant="white" className="h-full w-auto object-contain max-h-16 origin-left transition-none group-hover:invert" />
                         </div>
-                        <div className="hidden sm:flex flex-col border-l border-white/20 pl-4 py-1 justify-center">
-                            <h1 className="text-white font-display font-black text-2xl leading-none tracking-tight">
+                        <div className="hidden sm:flex flex-col justify-center">
+                            <h1 className="font-display font-black text-4xl leading-none tracking-tighter uppercase transition-none">
                                 IDSA
                             </h1>
-                            <span className="text-[10px] text-white/50 uppercase tracking-tighter mt-1">George Washington University</span>
+                            <span className="text-xs font-black uppercase tracking-tight mt-1 transition-none">George Washington University</span>
                         </div>
                     </NavLink>
 
                     {/* Desktop Navigation */}
-                    <div className="hidden lg:flex items-center gap-8 xl:gap-12">
+                    <div className="hidden lg:flex items-stretch flex-grow justify-end">
                         {NAV_ITEMS.map((item) => (
                             <NavLink
                                 key={item.path}
                                 to={item.path}
                                 className={({ isActive }) => `
-                                    flex flex-col group relative py-2
-                                    ${isActive ? 'text-white' : 'text-white/60 hover:text-white'}
-                                    transition-luxury
+                                    flex flex-col group relative px-8 justify-center items-center border-l-4 border-white cursor-crosshair bg-black
+                                    ${isActive ? 'bg-white text-black' : 'text-white hover:bg-white hover:text-black'}
+                                    transition-none
                                 `}
                             >
-                                <span className="font-display font-bold text-base xl:text-lg tracking-tight leading-none group-hover:-translate-y-1 transition-transform duration-300">
+                                <span className="font-display font-black text-xl xl:text-3xl tracking-tighter uppercase leading-none transition-none">
                                     {item.label}
                                 </span>
-                                <span className="text-[9px] uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-300 absolute -bottom-1 left-0 whitespace-nowrap text-white/80 translate-y-2 group-hover:translate-y-0">
+                                <span className={`text-[10px] font-black uppercase tracking-widest transition-none absolute bottom-3 whitespace-nowrap px-4 ${window.location.pathname.includes(item.path) ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}>
                                     {item.sub}
                                 </span>
-                                {/* Active Indicator */}
-                                <div
-                                    className={`
-                                        absolute -left-3 xl:-left-4 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-white rounded-full
-                                        transition-all duration-500 origin-center filter drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]
-                                        ${item.path === window.location.pathname ? 'scale-100 opacity-100' : 'scale-0 opacity-0'}
-                                    `}
-                                />
                             </NavLink>
                         ))}
                     </div>
 
                     {/* Mobile Menu Trigger */}
-                    <button className="lg:hidden p-2 text-white/80 hover:text-white transition-colors">
-                        <Menu size={24} />
+                    <button className="lg:hidden px-6 text-white bg-black hover:bg-white hover:text-black border-l-4 border-white transition-none flex items-center justify-center cursor-crosshair">
+                        <Menu size={32} strokeWidth={3} />
                     </button>
                 </nav>
             </header>

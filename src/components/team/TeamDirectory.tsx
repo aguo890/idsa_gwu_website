@@ -37,27 +37,27 @@ const renderTeamTier = (tierName: string, tierSubtitle: string, members: TeamMem
     if (members.length === 0) return null;
     return (
         <div className="mb-16 last:mb-0">
-            <div className="border-b border-white/10 pb-4 mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
-                <h3 className="text-[10px] font-display font-black uppercase tracking-[0.4em] text-white/50">
+            <div className="border-b border-4 border-black pb-4 mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <h3 className="text-[10px] font-display font-black uppercase tracking-[0.4em] text-black">
                     {tierName}
                 </h3>
-                <span className="text-white/40 italic font-serif text-sm">
+                <span className="text-black italic font-serif text-sm">
                     {tierSubtitle}
                 </span>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {members.map(member => (
-                    <div key={member.id} className="glass-panel p-6 rounded-2xl flex flex-col gap-4 hover:scale-[1.02] hover:bg-white/10 transition-all duration-300 group cursor-pointer border hover:border-white/20">
+                    <div key={member.id} className="brutalist-panel p-6 rounded-2xl flex flex-col gap-4 hover:scale-[1.02] hover:bg-gray-100 border-4 border-black transition-all duration-300 group cursor-pointer border hover:border-4 border-black">
                         <div className="flex items-start justify-between">
                             <div className="w-16 h-16 rounded-full bg-gradient-to-br from-white/20 to-white/5 flex-shrink-0 shadow-lg group-hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-shadow duration-300 mb-2" />
-                            <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white/40">
-                                <a href="#" className="hover:text-white transition-colors" title="LinkedIn"><Linkedin size={14} /></a>
-                                <a href="#" className="hover:text-white transition-colors" title="Email"><Mail size={14} /></a>
+                            <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-black">
+                                <a href="#" className="hover:text-black transition-colors" title="LinkedIn"><Linkedin size={14} /></a>
+                                <a href="#" className="hover:text-black transition-colors" title="Email"><Mail size={14} /></a>
                             </div>
                         </div>
 
                         <div className="flex flex-col flex-grow">
-                            <h4 className="text-white font-display font-bold text-sm tracking-wide group-hover:text-white/90 transition-colors">
+                            <h4 className="text-black font-display font-bold text-sm tracking-wide group-hover:text-black transition-colors">
                                 {member.name}
                             </h4>
                             <p className="text-[9px] uppercase font-bold text-transparent bg-clip-text bg-gradient-to-r from-gw-buff to-white/60 tracking-widest mt-1 min-h-[2.5rem]">
@@ -65,8 +65,8 @@ const renderTeamTier = (tierName: string, tierSubtitle: string, members: TeamMem
                             </p>
 
                             {member.quote && (
-                                <p className="mt-4 text-xs text-white/60 font-light italic leading-relaxed pt-4 border-t border-white/5 relative">
-                                    <span className="text-2xl text-white/10 absolute -top-1 left-0 font-serif leading-none">"</span>
+                                <p className="mt-4 text-xs text-black font-light italic leading-relaxed pt-4 border-t border-4 border-black relative">
+                                    <span className="text-2xl text-black absolute -top-1 left-0 font-serif leading-none">"</span>
                                     <span className="ml-4 block">{member.quote}</span>
                                 </p>
                             )}
@@ -89,15 +89,15 @@ export const TeamDirectory: React.FC = () => {
                 <span className="text-gw-buff/80 font-display font-bold uppercase tracking-[0.2em] text-[10px] bg-gw-buff/10 w-max mx-auto md:mx-0 px-3 py-1 rounded-full border border-gw-buff/20 backdrop-blur-sm">
                     Welcome to Our Team Directory
                 </span>
-                <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-black text-white drop-shadow-lg leading-tight mt-4">
+                <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-black text-black drop-shadow-brutal-sm leading-tight mt-4">
                     The #1 IDSA Team <br className="hidden md:block" /> in D.C.
                 </h2>
-                <p className="text-white/60 max-w-xl text-sm md:text-base mt-4 mx-auto md:mx-0 font-light">
+                <p className="text-black max-w-xl text-sm md:text-base mt-4 mx-auto md:mx-0 font-light">
                     Transform your organization with TeamHorizon, where innovation meets collaboration effectively.
                 </p>
             </div>
 
-            <div className="glass-panel p-6 md:p-12 rounded-3xl">
+            <div className="brutalist-panel p-6 md:p-12 rounded-3xl">
                 {renderTeamTier('Our Founders', '“Not just founders. Dream builders.”', founders)}
                 {renderTeamTier('Our Vice Presidents', '“Not just VPs. Vision keepers.”', vps)}
                 {renderTeamTier('Our Directors', '“Director: turning teamwork into magic.”', directors)}

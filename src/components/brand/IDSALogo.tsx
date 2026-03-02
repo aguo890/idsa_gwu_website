@@ -20,13 +20,13 @@ export const IDSALogo: React.FC<IDSALogoProps> = ({
     variant = 'gw-blue'
 }) => {
     const textColor = variant === 'white' ? '#FFFFFF' : '#000000';
-    const boxBg = variant === 'white' ? '#FFFFFF' : '#002D62';
-    const boxText = variant === 'white' ? '#002D62' : '#FFFFFF';
+    const boxBg = variant === 'white' ? '#FFFFFF' : '#000000';
+    const boxText = variant === 'white' ? '#000000' : '#FFFFFF';
 
     return (
-        <svg 
-            viewBox="0 0 80 160" 
-            className={`select-none pointer-events-none ${className}`} 
+        <svg
+            viewBox="0 0 80 160"
+            className={`select-none pointer-events-none ${className}`}
             preserveAspectRatio="xMidYMid meet"
             xmlns="http://www.w3.org/2000/svg"
         >

@@ -11,7 +11,7 @@ export const MockDataBanner: React.FC = () => {
     if (!isMockEnvironment) return null;
 
     return (
-        <div className="bg-gw-red text-white text-center py-2 text-sm font-bold uppercase tracking-[0.2em] sticky top-0 z-[100] shadow-xl">
+        <div className="bg-gw-red text-black text-center py-2 text-sm font-bold uppercase tracking-[0.2em] sticky top-0 z-[100] shadow-xl">
             Notice: Operating in Mock Data Environment
         </div>
     );
